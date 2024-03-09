@@ -56,6 +56,62 @@ class LinkedList {
 
         return this.tail(value.next);
     }
+
+    at (index) {
+
+        return findNext(this.head, index);
+
+        function findNext (start, index, current = 0) {
+            if (current == index) {
+                return start;
+            } 
+
+            return findNext(start.next, index, current += 1);
+        }
+    }
+
+    pop () {
+        if (this.size() > 0) {
+            this.at(this.size()-2).next = null;
+        }
+    }
+
+    contains (value) {
+        return findNext(value, this.head, this.tail())
+
+        function findNext(value, current, tail) {
+            if (current && value == current.value) {
+                return true;
+            } else if (current == tail) { return false }
+
+            return findNext(value, current.next)
+        }
+    }
+
+    find (value) {
+        return findNext(value, this.head, this.tail(), 0)
+
+        function findNext(value, current, tail, index) {
+            if (value == current.value) {
+                return index;
+            } else if (current == tail) { return null }
+
+            index++;
+            return findNext(value, current.next, tail, index)
+        }
+    }
+
+    toString () {
+        return stringy(this.head)
+
+        function stringy(first, currentString='') {
+            if (first.next == null) {
+                return currentString + ` -> ( ${first.value} ) -> null`;
+            }
+
+            return stringy(first.next, currentString+` -> ( ${first.value} )`);
+        }
+    }
 }
 
 class Node {
@@ -64,21 +120,3 @@ class Node {
         this.next = null;
     }
 }
-
-
-let link = new LinkedList();
-
-let thisNode = new Node('John');
-let secondNode = new Node('Coder');
-let thirdNode = new Node('Boi');
-
-link.append(thisNode);
-link.append(secondNode);
-link.prepend(thirdNode);
-
-console.log(`This linked list's head is: ${link.head.value}`);
-console.log(`This linked list's tail is: ${link.tail().value}`);
-
-console.log(thirdNode);
-
-console.log(link.size());
