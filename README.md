@@ -5,4 +5,5 @@ Some Odin Project exercises grouped together.
 - Algorithms
   - Merge Sort
 - Hash Maps
-- Linked Lists 
+- Linked Lists
+- Binary Search Trees
