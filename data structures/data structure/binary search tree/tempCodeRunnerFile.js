@@ -1,0 +1,1 @@
+thisTree.insert(3);
