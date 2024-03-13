@@ -7,3 +7,4 @@ Some Odin Project exercises grouped together.
 - Hash Maps
 - Linked Lists
 - Binary Search Trees
+- Jest testing
