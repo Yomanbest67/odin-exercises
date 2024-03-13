@@ -19,3 +19,7 @@ test('Works with W, X, Y, Z', () => {
 test('Works with higher shift', () => {
     expect(caesarCipher('Wxyzetted', 4)).toBe('Abcdixxih');
 });
+
+test('Works with everything', () => {
+    expect(caesarCipher('Wxyzetted? WaHoO.', 5)).toBe('Bcdejyyji? BfMtT.');
+});
